@@ -1,0 +1,14 @@
+<h1>Profile of <%= current_user.full_name %></h1>
+
+<h3>Hello <%= current_user.first_name %>, how you been?</h3>
+<br/>
+<div>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+</div>
+
+<%= form_for(current_user, url: user_registration_path) do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+
+  <%= submit_tag "Save" %>
+<% end %>
